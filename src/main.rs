@@ -1,4 +1,5 @@
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use std::env;
 
 #[get("/")]
 async fn hello() -> impl Responder {
@@ -8,9 +9,10 @@ async fn hello() -> impl Responder {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     println!("Starting server");
+    let port = env::var("PORT").expect("Missing $PORT env var");
+    let address = format!("0.0.0.0:{}", port);
     HttpServer::new(|| App::new().service(hello))
-        .bind("127.0.0.1:8088")?
-        // .bind(("0.0.0.0", 4000))?
+        .bind(address)?
         .run()
         .await
 }
