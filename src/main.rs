@@ -1,4 +1,3 @@
-use dotenv::dotenv;
 use lol::managed_accounts::get_managed_accounts;
 use lol::sent_transactions::get_sent_transactions;
 use std::env;
@@ -24,7 +23,6 @@ async fn sent_transactions_handler() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    dotenv::dotenv().ok();
     println!("Starting server");
     let port = env::var("PORT").expect("Missing $PORT env var");
     let address = format!("0.0.0.0:{}", port);
