@@ -6,6 +6,8 @@ sudo apt -y install libgssapi-krb5-2
 sudo apt -y install libgssapi-krb5-2:i386
 sudo apt -y install rsyslog-gssapi
 sudo apt -y install postgresql-devel
+echo "------------- apt-cache search libpq"
+apt-cache search libpq
 echo "------------- cargo stuff"
 cargo install diesel_cli --no-default-features --features postgres --verbose
 RUSTFLAGS='-L /usr/local/pgsql/lib' cargo build --release
