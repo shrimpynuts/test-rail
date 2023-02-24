@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 echo "------------- sudo apt stuff"
 sudo apt update
-sudo apt -y install libpq-dev
-sudo apt -y install libgssapi-krb5-2 
-sudo apt -y install libgssapi-krb5-2:i386
-sudo apt -y install rsyslog-gssapi
-sudo apt -y install postgresql-devel
+sudo apt-get -y install postgresql postgresql-contrib libpq-dev
 echo "------------- apt-cache search libpq"
 apt-cache search libpq
 echo "sudo ln -s  /usr/local/pgsql/lib/* /usr/lib/"
